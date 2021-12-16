@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  padding: 5px;
+  max-width: 100px;
+  color: #ccc;
+  background-image: linear-gradient(rgb(8, 78, 8), rgb(107, 107, 12));
+}
+
+span {
+  color: rgb(129, 21, 2);
+  font-size: 20px;
+}
