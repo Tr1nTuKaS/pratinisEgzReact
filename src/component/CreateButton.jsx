@@ -1,6 +1,6 @@
 import { useHistory } from "react-router";
 
-function Button() {
+function CreateButton() {
   const history = useHistory();
 
   const handle = () => {
@@ -13,4 +13,4 @@ function Button() {
   );
 }
 
-export default Button;
+export default CreateButton;

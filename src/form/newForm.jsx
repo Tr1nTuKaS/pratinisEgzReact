@@ -38,9 +38,9 @@ function NewForm() {
     });
     const data = await resp.json();
     console.log(data);
-    // if (data.msg === "success") {
-    //   history.replace("/");
-    // }
+    if (data.msg === "post created") {
+      history.replace("/");
+    }
   };
 
   return (
