@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 button {
+  margin: 10px;
   padding: 5px;
   max-width: 100px;
   color: #ccc;
@@ -18,5 +19,11 @@ span {
   margin: 1rem;
   border: 1px solid black;
   box-shadow: 3px 3px 5px;
-  max-width: 200px;
+  max-width: 700px;
+}
+
+.nav-container {
+  max-height: 70px;
+  background-color: #ccc;
+  text-align: center;
 }

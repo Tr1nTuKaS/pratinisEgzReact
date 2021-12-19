@@ -2,14 +2,14 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import NewForm from "./form/newForm";
 import HomePage from "./pages/HomePage";
-import DeleteButton from "./component/DeleteButton";
+import UpdateForm from "./form/UpdateForm";
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/single/:id">
-          <DeleteButton />
+        <Route path="/edit/:id">
+          <UpdateForm />
         </Route>
 
         <Route path="/new">

@@ -8,7 +8,7 @@ function CreateButton() {
   };
   return (
     <>
-      <button onClick={handle}>Create</button>
+      <button onClick={handle}>Sukurti</button>
     </>
   );
 }

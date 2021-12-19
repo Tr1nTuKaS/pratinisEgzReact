@@ -23,7 +23,7 @@ function DeleteButton({ post }) {
 
   return (
     <>
-      <button onClick={() => postDelete(post.id)}>delete</button>
+      <button onClick={() => postDelete(post.id)}>Ištrinti</button>
     </>
   );
 }

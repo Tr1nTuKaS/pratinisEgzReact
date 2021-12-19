@@ -6,7 +6,7 @@ import CreateButton from "./../component/CreateButton";
 function HomePage() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8000/posts").then((res) => {
+    axios.get("http://localhost:8000/posts/all").then((res) => {
       setPosts(res.data.data);
     });
   }, []);
@@ -22,7 +22,9 @@ function HomePage() {
 
   return (
     <div>
-      <CreateButton />
+      <div className="nav-container">
+        <CreateButton />
+      </div>
       {posts.map((post, index) => (
         <Card key={index} post={post} />
       ))}

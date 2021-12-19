@@ -1,15 +1,15 @@
 import DeleteButton from "./DeleteButton";
-import UpdateButton from "./UpdateButton";
+import EditButton from "./EditeButton";
 
 function Card({ post }) {
   return (
     <div className="container">
       <div>{post.name}</div>
       <div>{post.age}</div>
-      <p>{post.email}</p>
+      <div>{post.email}</div>
       <p>{post.password}</p>
       <DeleteButton post={post} />
-      <UpdateButton post={post} />
+      <EditButton post={post} />
     </div>
   );
 }

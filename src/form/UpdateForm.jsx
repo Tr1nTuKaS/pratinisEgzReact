@@ -1,10 +1,31 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import style from "./newForm.module.css";
-import { useHistory } from "react-router";
 
-function NewForm() {
+import { useHistory } from "react-router";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+const url = "http://localhost:8000/posts/";
+
+export default function UpdateForm() {
+  const { id } = useParams();
   const history = useHistory();
+
+  const [posts, setPosts] = useState([]);
+  const [data, setData] = useState({
+    name: "",
+    age: "",
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    axios.get(`${url}edit/${id}`).then((res) => {
+      setPosts(res.data.data);
+    });
+  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -20,32 +41,25 @@ function NewForm() {
       password: Yup.string().min(5).max(255).required(),
     }),
     onSubmit: (values) => {
-      handleSubmit(values.name, values.age, values.email, values.password);
+      handleEdit(values.name, values.age, values.email, values.password);
     },
   });
-  const handleSubmit = async (name, age, email, password) => {
-    const resp = await fetch("http://localhost:8000/posts/new", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        age,
-        email,
-        password,
-      }),
-    });
-    const data = await resp.json();
-    console.log(data);
-    if (data.msg === "post created") {
-      history.replace("/");
-    }
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    axios
+      .put(`http://localhost:8000/posts/update/${id}`)
+      .then((res) => {
+        console.log(res.data.data);
+        history.push("/");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <>
-      <form className={style.form} onSubmit={formik.handleSubmit}>
+      <form className={style.form} onSubmit={formik.handleEdit}>
+        <input className={style.inp} name={"id"} placeholder={id} />
+
         <input
           className={style.inp}
           name={"name"}
@@ -95,10 +109,8 @@ function NewForm() {
           <span>{formik.errors.password}</span>
         ) : null}
 
-        <button type={"submit"}>Pridėti</button>
+        <button type={"submit"}>Atnaujinti</button>
       </form>
     </>
   );
 }
-
-export default NewForm;
