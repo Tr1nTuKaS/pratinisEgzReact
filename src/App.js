@@ -7,41 +7,44 @@ import LoginPage from "./pages/LoginPage";
 import UserPage from "./pages/UserPage";
 import Header from "./component/Header";
 import { AuthContextProvider } from "./store/AuthContext";
+import { DataContextProvider } from "./store/loadContext";
 
 function App() {
   return (
     <div className="App">
-      <AuthContextProvider>
-        <Switch>
-          <Route exact path="/register">
-            <RegisterPage />
-          </Route>
+      <DataContextProvider>
+        <AuthContextProvider>
+          <Switch>
+            <Route exact path="/register">
+              <RegisterPage />
+            </Route>
 
-          <Route path="/edit/:id">
-            <UpdateForm />
-          </Route>
+            <Route path="/edit/:id">
+              <UpdateForm />
+            </Route>
 
-          <Route path="/login">
-            <LoginPage />
-          </Route>
+            <Route path="/login">
+              <LoginPage />
+            </Route>
 
-          <Route exact path="/user">
-            <UserPage />
-          </Route>
+            <Route exact path="/user">
+              <UserPage />
+            </Route>
 
-          <Route path="/new">
-            <NewForm />
-          </Route>
+            <Route path="/new">
+              <NewForm />
+            </Route>
 
-          <Route exact path="/">
-            <Header />
-          </Route>
+            <Route exact path="/">
+              <Header />
+            </Route>
 
-          <Route path="*">
-            <h2>Page does not exist</h2>
-          </Route>
-        </Switch>
-      </AuthContextProvider>
+            <Route path="*">
+              <h2>Page does not exist</h2>
+            </Route>
+          </Switch>
+        </AuthContextProvider>
+      </DataContextProvider>
     </div>
   );
 }
