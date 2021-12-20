@@ -2,12 +2,14 @@ import { useFormik } from "formik";
 import { useHistory } from "react-router";
 import * as Yup from "yup";
 import { useAuthContext } from "../store/AuthContext";
-import style from "./LoginForm.module.css";
+
 import Header from "../component/Header";
+import style from "./LoginForm.module.css";
 
 function Login() {
   const history = useHistory();
   const { login } = useAuthContext();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,27 +27,28 @@ function Login() {
         .required(),
     }),
     onSubmit: (values) => {
-      handleSubmit(values.email, values.password);
+      handleSubmit(values);
     },
   });
 
-  const handleSubmit = async (email, password) => {
-    const resp = await fetch("http://localhost:8000/users/login", {
+  const handleSubmit = async (values) => {
+    await fetch("http://localhost:8000/users/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-    const data = await resp.json();
-    const { token, foundUser: user } = data;
-    console.log(data);
-    if (login(token, user)) {
-      history.replace("/user");
-    }
+      body: JSON.stringify(values),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        const { foundUser: user, token } = data;
+        if (login(user, token)) {
+          history.replace("/user");
+        }
+      });
   };
 
   return (

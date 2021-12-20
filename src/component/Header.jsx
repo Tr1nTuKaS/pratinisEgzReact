@@ -33,17 +33,18 @@ function Header() {
               logout();
             }}
           >
-            LOGOUT ({authData.username})
+            LOGOUT ({authData.user})
           </Link>
         )}
 
         <Link className={style.link} to="/">
           Home
         </Link>
-
-        <Link className={style.link} to="/user">
-          User
-        </Link>
+        {isLoggedIn && (
+          <Link className={style.link} to="/user">
+            User
+          </Link>
+        )}
       </div>
     </>
   );

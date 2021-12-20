@@ -39,7 +39,7 @@ export default function UpdateForm() {
     },
   });
   const handleSubmit = async (name, age, email, password) => {
-    const res = await fetch(`http://localhost:8000/posts/update/${id}`, {
+    await fetch(`http://localhost:8000/posts/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
