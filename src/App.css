@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 button {
+  border-radius: 1rem;
   margin: 10px;
   padding: 5px;
   max-width: 100px;
@@ -27,4 +28,8 @@ span {
 h1 {
   display: flex;
   justify-content: center;
+}
+.nav {
+  background-color: #ccc;
+  height: 50px;
 }

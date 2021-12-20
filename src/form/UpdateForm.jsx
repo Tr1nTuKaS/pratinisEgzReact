@@ -36,16 +36,16 @@ export default function UpdateForm() {
       password: Yup.string().min(5).max(255).required(),
     }),
     onSubmit: (values) => {
-      handleSubmit(values.name, values.age, values.email, values.password);
+      handleSubmit(values);
     },
   });
-  const handleSubmit = async (name, age, email, password) => {
+  const handleSubmit = async (values) => {
     await fetch(`http://localhost:8000/posts/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, age, email, password }),
+      body: JSON.stringify(values),
     })
       .then((response) => {
         return response.json();
@@ -55,7 +55,10 @@ export default function UpdateForm() {
   };
   return (
     <>
-      <Header />
+      <div className="nav">
+        <Header />
+      </div>
+
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
           className={style.inp}

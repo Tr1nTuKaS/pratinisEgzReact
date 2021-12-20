@@ -25,16 +25,18 @@ function UserPage() {
   // }, []);
 
   return (
-    <section>
+    <>
       <Loading show={data.loading} />
-      <div>
+      <div className="nav">
         <Header />
+      </div>
+      <div>
         <h1>--Posts--</h1>
       </div>
       {posts.map((post, index) => (
         <Card key={index} post={post} />
       ))}
-    </section>
+    </>
   );
 }
 

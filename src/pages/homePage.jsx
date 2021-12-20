@@ -4,7 +4,9 @@ import style from "./homePage.module.css";
 function HomePage() {
   return (
     <>
-      <Header />
+      <div className="nav">
+        <Header />
+      </div>
       <section>
         <h1 className={style.h1}>Change Background</h1>
       </section>

@@ -52,8 +52,11 @@ function Login() {
   };
 
   return (
-    <section>
-      <Header />
+    <div>
+      <div className="nav">
+        <Header />
+      </div>
+
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
           className={style.inp}
@@ -83,7 +86,7 @@ function Login() {
           Prisijungti
         </button>
       </form>
-    </section>
+    </div>
   );
 }
 

@@ -45,8 +45,11 @@ function NewForm() {
   };
 
   return (
-    <section>
-      <Header />
+    <div>
+      <div className="nav">
+        <Header />
+      </div>
+
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
           className={style.inp}
@@ -99,7 +102,7 @@ function NewForm() {
 
         <button type={"submit"}>Pridėti</button>
       </form>
-    </section>
+    </div>
   );
 }
 

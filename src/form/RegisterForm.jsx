@@ -46,8 +46,11 @@ const RegisterForm = () => {
     },
   });
   return (
-    <section>
-      <Header />
+    <div>
+      <div className="nav">
+        <Header />
+      </div>
+
       <div>
         {formSuccess ? (
           <h2>You have successfully registered</h2>
@@ -98,7 +101,7 @@ const RegisterForm = () => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 
