@@ -45,7 +45,7 @@ function Login() {
       .then((data) => {
         console.log(data);
         const { foundUser: user, token } = data;
-        if (login(user, token)) {
+        if (login(user)) {
           history.replace("/user");
         }
       });

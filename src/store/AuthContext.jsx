@@ -42,7 +42,7 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = () => {
-    setAuthData((s) => ({ ...s, username: null, token: null }));
+    setAuthData((s) => ({ ...s, token: null, username: null }));
     toast.success("Logged Out");
   };
 

@@ -34,7 +34,7 @@ function Header() {
             }}
             to="/"
           >
-            LOGOUT ({authData.user})
+            LOGOUT ({authData.token})
           </Link>
         )}
 
