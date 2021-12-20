@@ -24,3 +24,7 @@ span {
 .container div {
   max-width: 700px;
 }
+h1 {
+  display: flex;
+  justify-content: center;
+}

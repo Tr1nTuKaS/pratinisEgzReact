@@ -45,7 +45,7 @@ function NewForm() {
   };
 
   return (
-    <>
+    <section>
       <Header />
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
@@ -99,7 +99,7 @@ function NewForm() {
 
         <button type={"submit"}>Pridėti</button>
       </form>
-    </>
+    </section>
   );
 }
 

@@ -25,7 +25,7 @@ function UserPage() {
   // }, []);
 
   return (
-    <div>
+    <section>
       <Loading show={data.loading} />
       <div>
         <Header />
@@ -34,7 +34,7 @@ function UserPage() {
       {posts.map((post, index) => (
         <Card key={index} post={post} />
       ))}
-    </div>
+    </section>
   );
 }
 

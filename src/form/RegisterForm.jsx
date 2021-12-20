@@ -46,7 +46,7 @@ const RegisterForm = () => {
     },
   });
   return (
-    <div className={style.container}>
+    <section>
       <Header />
       <div>
         {formSuccess ? (
@@ -98,7 +98,7 @@ const RegisterForm = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

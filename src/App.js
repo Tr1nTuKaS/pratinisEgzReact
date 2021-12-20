@@ -5,9 +5,9 @@ import UpdateForm from "./form/UpdateForm";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import UserPage from "./pages/UserPage";
-import Header from "./component/Header";
 import { AuthContextProvider } from "./store/AuthContext";
 import { DataContextProvider } from "./store/loadContext";
+import HomePage from "./pages/homePage";
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
             </Route>
 
             <Route exact path="/">
-              <Header />
+              <HomePage />
             </Route>
 
             <Route path="*">
