@@ -15,9 +15,8 @@ export default function UpdateForm() {
 
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
+  useEffect((name, age, email, password) => {
     axios.get(`${url}edit/${id}`).then((res) => {
-      console.log(res.data.data.name);
       setPosts(res.data.data);
     });
   }, []);
@@ -40,7 +39,7 @@ export default function UpdateForm() {
     },
   });
   const handleSubmit = async (name, age, email, password) => {
-    const res = await fetch(`${url}update/${id}`, {
+    const res = await fetch(`http://localhost:8000/posts/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -3,8 +3,9 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import { useHistory } from "react-router";
 import { useState } from "react";
+import Header from "../component/Header";
+
 import style from "./registerForm.module.css";
-import Header from "./../component/Header";
 
 const RegisterForm = () => {
   const history = useHistory();
@@ -25,7 +26,7 @@ const RegisterForm = () => {
         .required(),
     }),
     onSubmit: async (values) => {
-      const resp = await fetch("http://localhost:8000/auth/register", {
+      const resp = await fetch("http://localhost:8000/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +46,7 @@ const RegisterForm = () => {
     },
   });
   return (
-    <div className="container">
+    <div className={style.container}>
       <Header />
       <div>
         {formSuccess ? (

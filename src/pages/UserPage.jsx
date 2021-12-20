@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "../component/Card";
 import axios from "axios";
-import CreateButton from "./../component/CreateButton";
+import Header from "./../component/Header";
 
-function HomePage() {
+function UserPage() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8000/posts/all").then((res) => {
@@ -23,7 +23,7 @@ function HomePage() {
   return (
     <div>
       <div className="nav-container">
-        <CreateButton />
+        <Header />
       </div>
       {posts.map((post, index) => (
         <Card key={index} post={post} />
@@ -32,4 +32,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default UserPage;

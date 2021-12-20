@@ -1,6 +1,7 @@
 import style from "./Header.module.css";
 import { useAuthContext } from "../store/AuthContext";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import CreateButton from "./CreateButton";
 
 function Header() {
   const { authData, isLoggedIn, logout, login } = useAuthContext();
@@ -8,8 +9,8 @@ function Header() {
   return (
     <>
       <div className={style.containernav}>
-        <Link to="/add">
-          <button className={style.btn}>Post Your Add</button>
+        <Link to="/new">
+          <CreateButton />
         </Link>
 
         {!isLoggedIn && (

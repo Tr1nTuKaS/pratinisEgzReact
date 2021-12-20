@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import style from "./newForm.module.css";
 import { useHistory } from "react-router";
+import Header from "./../component/Header";
 
 function NewForm() {
   const history = useHistory();
@@ -45,6 +46,7 @@ function NewForm() {
 
   return (
     <>
+      <Header />
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
           className={style.inp}

@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import * as Yup from "yup";
 import { useAuthContext } from "../store/AuthContext";
 import style from "./LoginForm.module.css";
-import Header from "./../component/Header";
+import Header from "../component/Header";
 
 function Login() {
   const history = useHistory();
@@ -30,7 +30,7 @@ function Login() {
   });
 
   const handleSubmit = async (email, password) => {
-    const resp = await fetch("http://localhost:8000/auth/login", {
+    const resp = await fetch("http://localhost:8000/users/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
