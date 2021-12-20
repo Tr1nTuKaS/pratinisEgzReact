@@ -1,4 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+git remote add origin git@github.com:Tr1nTuKaS/pratinisEgzReact.git
+git branch -M main
+git push -u origin main# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules

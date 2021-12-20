@@ -14,15 +14,10 @@ export default function UpdateForm() {
   const history = useHistory();
 
   const [posts, setPosts] = useState([]);
-  const [data, setData] = useState({
-    name: "",
-    age: "",
-    email: "",
-    password: "",
-  });
 
   useEffect(() => {
     axios.get(`${url}edit/${id}`).then((res) => {
+      console.log(res.data.data.name);
       setPosts(res.data.data);
     });
   }, []);
@@ -41,25 +36,26 @@ export default function UpdateForm() {
       password: Yup.string().min(5).max(255).required(),
     }),
     onSubmit: (values) => {
-      handleEdit(values.name, values.age, values.email, values.password);
+      handleSubmit(values.name, values.age, values.email, values.password);
     },
   });
-  const handleEdit = async (e) => {
-    e.preventDefault();
-    axios
-      .put(`http://localhost:8000/posts/update/${id}`)
-      .then((res) => {
-        console.log(res.data.data);
-        history.push("/");
+  const handleSubmit = async (name, age, email, password) => {
+    const res = await fetch(`${url}update/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, age, email, password }),
+    })
+      .then((response) => {
+        return response.json();
       })
-      .catch((err) => console.log(err));
+      .then((data) => console.log(data));
+    history.push("/");
   };
-
   return (
     <>
-      <form className={style.form} onSubmit={formik.handleEdit}>
-        <input className={style.inp} name={"id"} placeholder={id} />
-
+      <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
           className={style.inp}
           name={"name"}
@@ -88,7 +84,7 @@ export default function UpdateForm() {
           className={style.inp}
           name={"email"}
           placeholder={"Email"}
-          type={"email"}
+          type={"text"}
           value={formik.values.email}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
