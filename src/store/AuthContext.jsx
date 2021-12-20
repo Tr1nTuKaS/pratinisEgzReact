@@ -26,7 +26,7 @@ export const useAuthContext = () => useContext(AuthContext);
 export const AuthContextProvider = ({ children }) => {
   const [authData, setAuthData] = useState({
     loading: false,
-    username: null,
+    usersname: null,
     token: null,
   });
   const isLoggedIn = !!authData.token;

@@ -7,7 +7,7 @@ function Card({ post }) {
       <div>{post.name}</div>
       <div>{post.age}</div>
       <div>{post.email}</div>
-      <p>{post.password}</p>
+      <div>{post.password}</div>
       <DeleteButton post={post} />
       <EditButton post={post} />
     </div>

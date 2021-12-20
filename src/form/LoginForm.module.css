@@ -18,3 +18,6 @@
   max-width: 100px;
   background-image: linear-gradient(rgb(8, 78, 8), rgb(107, 107, 12));
 }
+.container {
+  background-color: #ccc;
+}

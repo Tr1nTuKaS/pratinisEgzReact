@@ -40,7 +40,7 @@ function NewForm() {
     const data = await resp.json();
     console.log(data);
     if (data.msg === "post created") {
-      history.replace("/");
+      history.replace("/user");
     }
   };
 

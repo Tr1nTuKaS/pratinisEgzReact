@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <>
-      <div className={style.containernav}>
+      <div className={style.container}>
         <Link to="/new">
           <CreateButton />
         </Link>
@@ -32,6 +32,7 @@ function Header() {
               e.preventDefault();
               logout();
             }}
+            to="/"
           >
             LOGOUT ({authData.user})
           </Link>

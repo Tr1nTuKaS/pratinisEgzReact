@@ -20,7 +20,7 @@ const RegisterForm = () => {
 
     validationSchema: Yup.object({
       email: Yup.string().email().min(4).max(25).required(),
-      password: Yup.string().min(6).required(),
+      password: Yup.string().min(5).required(),
       repeatPassword: Yup.string()
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required(),
@@ -92,7 +92,7 @@ const RegisterForm = () => {
               ) : null}
 
               <button className={style.btn} type="submit">
-                REGISTER
+                Registracija
               </button>
             </form>
           </div>

@@ -19,7 +19,7 @@ function Login() {
       email: Yup.string()
         .email()
         .min(4, "minimum 4 characters")
-        .max(15, "maximum 15 characters")
+        .max(55, "maximum 15 characters")
         .required(),
       password: Yup.string()
         .min(4, "minimum 4 characters")
@@ -80,7 +80,7 @@ function Login() {
           <span>{formik.errors.password}</span>
         ) : null}
         <button className={style.btn} type={"submit"}>
-          Login
+          Prisijungti
         </button>
       </form>
     </section>

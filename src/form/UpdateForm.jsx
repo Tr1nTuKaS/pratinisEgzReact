@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Header from "../component/Header";
 
 const url = "http://localhost:8000/posts/";
 
@@ -50,10 +51,11 @@ export default function UpdateForm() {
         return response.json();
       })
       .then((data) => console.log(data));
-    history.push("/");
+    history.push("/user");
   };
   return (
     <>
+      <Header />
       <form className={style.form} onSubmit={formik.handleSubmit}>
         <input
           className={style.inp}

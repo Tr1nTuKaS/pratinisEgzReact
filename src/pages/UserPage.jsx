@@ -22,8 +22,9 @@ function UserPage() {
 
   return (
     <div>
-      <div className="nav-container">
+      <div>
         <Header />
+        <h1>--Posts--</h1>
       </div>
       {posts.map((post, index) => (
         <Card key={index} post={post} />
